@@ -1,0 +1,785 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Now Regular";
+}
+
+:root {
+  --header-bg: rgba(42, 1, 74, 0.5);
+  --main-bg: rgb(93, 0, 206);
+  --white: #fff;
+  --black: #000;
+  --gray-dark: #343a40;
+  --light-gray: #888888;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Basic Resets */
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+input {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+/* Utitlity Classes */
+.container {
+  padding: 0 10rem;
+}
+
+.section-heading {
+  font-size: 4.2rem;
+  color: var(--black);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Rajdhani", sans-serif;
+}
+
+.primary-btn {
+  background-color: var(--main-bg);
+  padding: 1.3rem 2.5rem;
+  color: var(--white);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  letter-spacing: 0.2rem;
+  border: none;
+  outline: none;
+}
+
+.primary-outline-btn {
+  background-color: transparent;
+  padding: 1.3rem 2.5rem;
+  color: var(--black);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  letter-spacing: 0.2rem;
+  border: 3px solid var(--main-bg);
+  outline: none;
+}
+
+.play-btn {
+  color: var(--main-bg);
+  font-size: 2.6rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/******************************* Navbar Starts Here *******************************/
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.navbar {
+  width: 100vw;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--header-bg);
+  gap: 5rem;
+  position: relative;
+}
+
+.logo {
+  height: 5rem;
+  width: 8rem;
+}
+
+.menu-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.nav-link {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: white;
+  text-transform: uppercase;
+  padding: 1rem 0;
+  position: relative;
+}
+
+.nav-link::after {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 0;
+  width: 0%;
+  height: 0.3rem;
+  background-color: var(--white);
+  transition: all 0.5s ease;
+}
+
+li:hover .nav-link::after,
+.active .nav-link::after {
+  width: 100% !important;
+}
+
+.nav-social-icons-div {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.nav-social-icons-div i {
+  color: white;
+  font-size: 1.4rem;
+}
+
+.hamburgerDiv i {
+  font-size: 2rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.hamburgerDiv {
+  display: none;
+}
+
+/****************************** Hero Section ******************************/
+#hero-section {
+  width: 100vw;
+  height: 130vh;
+  background: url("../img/hero-bg.png") no-repeat center center/cover;
+  position: relative;
+}
+
+.hero-section-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.hero-heading {
+  font-size: 11rem;
+  font-family: "Rockville Solid Regular";
+  font-weight: 500;
+  line-height: 11rem;
+}
+
+.hero-para {
+  font-size: 1.6rem;
+  text-wrap: wrap;
+  width: 50%;
+}
+
+#hero-section .play-btn {
+  margin-top: 1rem;
+}
+
+#hero-section .play-btn i {
+  background-color: var(--white);
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.angle-down {
+  position: absolute;
+  color: var(--main-bg);
+  font-size: 3rem;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: upDown 1s ease-in infinite;
+}
+
+@keyframes upDown {
+  0% {
+    bottom: 5px;
+  }
+
+  50% {
+    bottom: 0px;
+  }
+
+  100% {
+    bottom: -10px;
+  }
+}
+
+/****************************** Upcoming Events Section ******************************/
+#upcoming-events {
+  width: 100vw;
+  padding: 5rem 0;
+}
+
+.upcoming-section-content {
+  width: 100%;
+  height: 100%;
+  margin-top: 3rem;
+}
+
+.slideContainer {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.slideCard {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--white);
+}
+
+.slideCard img {
+  width: 100%;
+  height: 40rem;
+}
+
+.slide-body {
+  padding: 2rem 0;
+}
+
+.slide-title {
+  font-size: 2.5rem;
+  font-family: "Rajdhani";
+}
+
+.slide-para {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  color: var(--light-gray);
+  font-weight: 600;
+}
+
+.slide-para i {
+  color: var(--main-bg);
+}
+
+/****************************** About Section ******************************/
+#about-section {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.about-left,
+.about-right {
+  width: 100%;
+}
+
+.about-img {
+  width: 100%;
+}
+
+.about-right {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.about-para {
+  font-size: 1.6rem;
+  color: var(--gray-dark);
+  line-height: 3rem;
+}
+
+.about-right .primary-btn {
+  width: 20rem;
+  cursor: pointer;
+}
+
+/****************************** Service Section ******************************/
+#service-section {
+  width: 100vw;
+}
+
+.service-content {
+  display: flex;
+  align-items: center;
+}
+
+.service-left,
+.service-right {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.service-left {
+  position: relative;
+  background: url("../img/service-left.jpg") no-repeat center center/cover;
+}
+
+.service-light-bg {
+  background-color: rgba(110, 22, 218, 0.569);
+}
+
+.service-left .play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 1rem;
+  background-color: rgba(142, 52, 252, 0.569);
+}
+
+.service-left .play-btn i {
+  background-color: var(--main-bg);
+  color: var(--white);
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  background-color: var(--main-bg);
+}
+
+.service-right-content {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  color: var(--white);
+}
+
+.service-right-content img {
+  width: 8rem;
+}
+
+.service-right-title {
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: "Rajdhani";
+}
+
+.service-right-para {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 2.5rem;
+}
+
+/****************************** Track Section ******************************/
+#track-section {
+  min-height: 100vh;
+  padding: 5rem 0;
+}
+
+.track-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.track-content {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.track-right,
+.track-left {
+  width: 100%;
+}
+
+.track-left {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.song-div {
+  width: 100%;
+}
+
+.songContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.song-title {
+  font-size: 3rem;
+  font-family: "Rajdhani";
+}
+
+.songContainer .play-btn {
+  width: 6rem;
+  height: 6rem;
+  border: 3px solid #ccc;
+  cursor: pointer;
+}
+
+.song-duration-div {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.song-progress-bar {
+  width: 80%;
+  height: 0.5rem;
+  background-color: #f2f2f2;
+}
+
+.track-volume {
+  font-size: 1.6rem;
+}
+
+.track-right img {
+  width: 90%;
+}
+
+/****************************** Youtube Feeds Section ******************************/
+#youtubeFeed-section {
+  padding: 5rem 0;
+  width: 100vw;
+}
+
+#youtubeFeed-section .section-heading {
+  text-align: center;
+}
+
+.yf-content {
+  width: 100%;
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5rem;
+}
+
+.cardWrapper:hover {
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.card-header {
+  position: relative;
+  width: 100%;
+}
+
+.card-header img {
+  width: 100%;
+  height: 30rem;
+}
+
+.card-header .play-btn {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 6rem;
+  height: 6rem;
+}
+
+.card-header .play-btn i {
+  background-color: var(--white);
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.card-title {
+  font-size: 3rem;
+  font-family: "rajdhani";
+  width: 100%;
+}
+
+/* Music Event Section */
+#musicEvent-section {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("../img/countdown-bg.jpg") no-repeat center center/cover;
+}
+
+#musicEvent-section .container {
+  text-align: center;
+}
+
+.musicEvent-heading {
+  font-size: 9rem;
+  font-family: "Rockville Solid Regular";
+  font-weight: 500;
+  /* line-height: 11rem; */
+  color: white;
+}
+
+.musicEvent-para {
+  font-size: 3rem;
+  font-weight: 500;
+  color: white;
+  text-transform: uppercase;
+}
+.timerWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8rem;
+  color: white;
+  margin: 5rem 0;
+}
+
+.inner-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inner-wrapper span {
+  font-size: 8rem;
+  font-weight: bold;
+  font-family: "rajdhani";
+}
+
+.timer-text {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+
+/****************************** Footer section ******************************/
+footer {
+  background: url('../img/footer-bg.png') no-repeat center center/500%;
+  padding: 3rem 0;
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+}
+
+.fa-heart {
+  color: red;
+}
+
+/****************************** Media Queries ******************************/
+
+@media (max-width: 991px) {
+  .container {
+    padding: 0 8rem;
+  }
+
+  /* Navbar */
+  .nav-social-icons-div {
+    display: none;
+  }
+
+  /* upcoming event section */
+  .slideContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* About Section */
+  .about-content {
+    flex-wrap: wrap;
+  }
+
+  /* Service Section */
+  .service-content {
+    flex-direction: column;
+  }
+
+  /* Track Section */
+  .track-content {
+    flex-direction: column;
+  }
+
+  .track-right img {
+    width: 100%;
+  }
+
+  /* Youtube Feed Section */
+  .yf-content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card-title {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 6rem;
+  }
+  /* Navbar */
+  .menu-div {
+    position: absolute;
+    top: 8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 0rem;
+    padding: 5rem 0;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--gray-dark);
+    padding: 5rem;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+  }
+
+  .active-menu {
+    height: 30rem !important;
+    opacity: 1;
+  }
+
+  li:hover .nav-link::after,
+  .active .nav-link::after {
+    width: 0% !important;
+  }
+
+  .hamburgerDiv {
+    display: block;
+  }
+
+  /* upcoming event section */
+  .slideContainer {
+    grid-template-columns: 1fr;
+  }
+
+  /* Service Section */
+  .service-right {
+    grid-template-columns: 1fr;
+  }
+
+  .service-right-content {
+    border: 1px solid #e5e5e5;
+  }
+  /* Music event section */
+  .musicEvent-heading {
+    line-height: 8rem;
+  }
+  .musicEvent-para {
+    margin-top: 3rem;
+  }
+  .timerWrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 3rem 0;
+  }
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 50%;
+  }
+  .container {
+    width: 100%;
+    padding: 0 1.5rem;
+  }
+
+  .hero-heading {
+    font-size: 7rem;
+  }
+
+  .hero-para {
+    width: 90%;
+    font-size: 1.5rem;
+  }
+
+  /* Youtube Feed section */
+  .yf-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  /* upcoming event  */
+  .section-heading {
+    font-size: 3rem;
+  }
+
+  /* Service section */
+  .service-right-content {
+    padding: 2rem;
+  }
+
+  /* Track Section */
+
+  .track-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .song-title {
+    font-size: 2rem;
+  }
+
+  .musicEvent-heading {
+    font-size: 6rem;
+  }
+
+  .musicEvent-para {
+    font-size: 2rem;
+  }
+}
+
